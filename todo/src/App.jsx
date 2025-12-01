@@ -1,3 +1,5 @@
+// trial - 3 for assignment :
+
 import { useState } from 'react'
 import './App.css'
 import TaskList from "./Tasklist.jsx"
@@ -11,10 +13,11 @@ function App() {
       <div className="todo-container">
         <h1>Smart To-Do List</h1>
 
-        <TaskList onAddTask={setNewTask} />
+        <TaskList onAddTask={setNewTask} value={newTask}/>
 
         <button 
           onClick={() => { 
+            if (newTask.trim() !== "")
             setTasks([...tasks, { text: newTask, completed: false }]); 
             setNewTask(""); 
           }}
@@ -58,8 +61,4 @@ function App() {
     </>
   );
 }
-
 export default App;
-
-
-
